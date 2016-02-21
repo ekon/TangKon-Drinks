@@ -89,3 +89,16 @@ def PrintMostUsedIngredients():
 
 #PrintMostUsedIngredients()
 
+# Given an ingredient, list the recipes that can be made with it.
+#
+# Args:
+#   ingredient: ingredient from ingredients.py
+def GetRecipesForIngredient(ingredient):
+  recipes = []
+  for recipe in book._recipes:
+    for recipe_ingredient in recipe._ingredients:
+      if recipe_ingredient == ingredient:
+        recipes.append(recipe)
+  print "\n Recipes that can be made with {0}: {1}".format(str(ingredient), str(recipes))
+ 
+GetRecipesForIngredient(Amari.fernet_branca)
