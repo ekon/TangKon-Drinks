@@ -28,9 +28,7 @@ def WhatCanIMake(existing_ingredients, subs_allowed, num_missing_allowed):
 
 
 book = RecipeBook()
-my_pantry = [Gin.beefeater, W.buffalo_bourbon, R.goslings, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.campari, V.dolin_dry,
-V.dolin_blanc, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, J.lemon, J.lime, J.orange,  B.a,
-B.o, B.p, O.simple_syrup, O.ginger_syrup]
+my_pantry = [Gin.beefeater, W.buffalo_bourbon, W.rittenhouse_rye, R.goslings, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.fernet_branca, Amari.campari, V.dolin_dry, V.dolin_blanc, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange,  B.a, B.o, B.p, O.simple_syrup, O.ginger_syrup]
 i_can_make = WhatCanIMake(my_pantry, False, 0)
 print "I can make {0} recipes: {1}".format(len(i_can_make), i_can_make)
 
@@ -56,7 +54,7 @@ def FindMissingIngredients(recipe_name, existing_ingredients):
 
 
 # TODO: would be nice to have the drink_name as a flag
-drink_name = "French 75" #"Dark and Stormy"
+drink_name = "French 95" #"Dark and Stormy"
 missing_ingredients = FindMissingIngredients(drink_name, my_pantry)
 print "Missing ingredients for {0} are: {1}".format(drink_name, missing_ingredients)
 
@@ -68,7 +66,7 @@ def PrintIngredients(recipe_name):
   print "Ingredients for {0} are: {1}".format(recipe_name, recipe._ingredients)
 
 
-PrintIngredients(drink_name)
+#PrintIngredients(drink_name)
 
 # Prints a sorted map of ingredient to # recipes used in in order of most-used first.
 # TODO: right now it prints in reverse order, fix that.
@@ -89,5 +87,5 @@ def PrintMostUsedIngredients():
   ingredients_sorted_by_freq = sorted(ingredient_frequency.items(), key=operator.itemgetter(1))
   print "Most used ingredients are: {0}".format(str(ingredients_sorted_by_freq))
 
-PrintMostUsedIngredients()
+#PrintMostUsedIngredients()
 

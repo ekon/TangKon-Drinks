@@ -237,6 +237,7 @@ class O(object):
   acacia_honey_syrup = "acacia honey syrup" # instructions on pg. 286 in the book
   dry_champagne = "dry champagne"
   club_soda = "Club soda"
+  tonic_water = "Tonic water"
   cane_sugar_syrup = "cane sugar syrup"
   white_sugar_cube = "White sugar cube"
   passion_fruit_syrup = "Passion Fruit Syrup" # instructions on pg. 277
