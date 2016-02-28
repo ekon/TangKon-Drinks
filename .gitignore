@@ -1,2 +1,3 @@
 *.py~
 recipe_book.py
+*.pyc
