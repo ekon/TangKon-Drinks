@@ -6,47 +6,62 @@ from ingredients import *
 from recipe_book import *
 
 
-# TODO: add logic about what type of substitutions I can actually do.
-def CanMakeRecipe(existing_ingredients, subs_allowed, num_missing_allowed, recipe_ingredients):
+"""Returns True if can make given recipe.
+
+TODO: add logic about what type of substitutions I can actually do.
+
+Args:
+  existing_ingredients: List of ingredients that I have.
+  subs_allowed: True if substitutions are allowed.
+  num_subs_allowed: If substitutions are allowed, number of ingredients that can be substituted.
+  recipe_ingredients: Ingredients needed to make a given recipe.
+
+Returns:
+  True if can make recipe.
+"""
+def CanMakeRecipe(existing_ingredients, subs_allowed, num_subs_allowed, recipe_ingredients):
   # thought about using set differences but with subsitutions it's not really any less code anyway
   subs_made = 0
   for ingredient in recipe_ingredients:
     if ingredient not in existing_ingredients:
-      if not subs_allowed or subs_made == num_missing_allowed:
+      if not subs_allowed or subs_made == num_subs_allowed:
         return False
       subs_made += 1
   return True
 
 
-# ingredients = list of ingredients that I have
-# subs_allowed = bool, true = allowed to make substitutions. TODO: define substitution rules
-# num_missing_allowed = int, number of allowed ingredients to be missing
-def WhatCanIMake(existing_ingredients, subs_allowed, num_missing_allowed):
+"""Returns list of recipes that I can make.
+
+Args:
+  existing_ingredients: List of ingredients that I have.
+  subs_allowed: True if substitutions are allowed.
+  num_subs_allowed: If substitutions are allowed, number of ingredients that can be substituted.
+
+Returns:
+  List of recipes that can be made.
+"""
+def WhatCanIMake(existing_ingredients, subs_allowed, num_subs_allowed):
   recipes_can_make = []
   for recipe in book._recipes:
-    if CanMakeRecipe(existing_ingredients, subs_allowed, num_missing_allowed, recipe._ingredients):
+    if CanMakeRecipe(existing_ingredients, subs_allowed, num_subs_allowed, recipe._ingredients):
       recipes_can_make.append(recipe)
   return recipes_can_make
 
-
-book = RecipeBook()
-my_pantry = [Gin.beefeater, W.buffalo_bourbon, W.rittenhouse_rye, R.goslings, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.fernet_branca, Amari.campari, V.dolin_dry, V.dolin_blanc, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange,  B.a, B.o, B.p, O.simple_syrup, O.ginger_syrup]
-
-
+"""Prints recipes that I can make."""
 def PrintWhatICanMake():
   i_can_make = WhatCanIMake(my_pantry, False, 0)
   print "I can make {0} recipes: {1}".format(len(i_can_make), i_can_make)
 
 
+"""Given a recipe name, find ingredients not in my pantry.
 
-# Given a recipe name, find ingredients not in my pantry.
-#
-# TODO: would be good to not have to have an exact name on the drink name (e.g. regex, lower case
-# all).
-#
-# Args:
-#  recipe_name: string, must exactly match string names of recipes in RecipeBook.
-#  existing_ingredients: list of ingredients I already have
+Args:
+  recipe_name: String recipe name. Comparison is case-insensitive.
+  existing_ingredients: List of ingredients I already have.
+
+Returns:
+  List of missing ingredients.
+""" 
 def FindMissingIngredients(recipe_name, existing_ingredients):
   recipe = book.GetRecipe(recipe_name)
   if not recipe:
@@ -57,12 +72,20 @@ def FindMissingIngredients(recipe_name, existing_ingredients):
       missing_ingredients.append(ingredient)
   return missing_ingredients
 
-# TODO: make case-insensitive.
+"""Prints missing ingredients.
+
+Args:
+  recipe_name: String recipe name. Comarison is case-insensitive.
+"""
 def PrintMissingIngredients(recipe_name):
   missing_ingredients = FindMissingIngredients(recipe_name, my_pantry)
   print "Missing ingredients for {0} are: {1}".format(recipe_name, missing_ingredients)
 
-# TODO: make case-insensitive.
+"""Prints ingredients needed for a given recipe.
+
+Args:
+  recipe_name: String recipe name. Comparision is case-insensitive.
+"""
 def PrintIngredients(recipe_name):
   recipe = book.GetRecipe(recipe_name)
   if not recipe:
@@ -70,15 +93,15 @@ def PrintIngredients(recipe_name):
   print "Ingredients for {0} are: {1}".format(recipe_name, recipe._ingredients)
 
 
-#PrintIngredients(drink_name)
+"""Prints a sorted map of ingredient to # recipes used in in order of most-used first.
 
-# Prints a sorted map of ingredient to # recipes used in in order of most-used first.
-# TODO: This function is a decent approximation for what ingredients I want, but isn't good enough.
-# This doesn't optimize for actually being able to make more drinks. What I really want is a
-# function that will tell me which ingredient I should buy that will let me make the most number of
-# new drinks given my existing ingredients. For example, tiki drinks require multiple rums, if I
-# only get the most used rum in all of the drinks that will not be enough for me to be able to make
-# those drinks, unless I also have those other rums, or want to do substitutions.
+TODO: This function is a decent approximation for what ingredients I want, but isn't good enough.
+This doesn't optimize for actually being able to make more drinks. What I really want is a
+function that will tell me which ingredient I should buy that will let me make the most number of
+new drinks given my existing ingredients. For example, tiki drinks require multiple rums, if I
+only get the most used rum in all of the drinks that will not be enough for me to be able to make
+those drinks, unless I also have those other rums, or want to do substitutions.
+"""
 def PrintMostUsedIngredients():
   ingredient_frequency = {}
   for recipe in book._recipes:
@@ -91,16 +114,15 @@ def PrintMostUsedIngredients():
   reverse=True)
   print "Most used ingredients are: {0}".format(str(ingredients_sorted_by_freq))
 
-#PrintMostUsedIngredients()
 
+"""Prints most-used ingredients that, if I got any single one, would allow to me to make more recipes.
 
-# Prints most-used ingredients that, if I got any single one, would allow to me to make more
-# recipes.
-#
-# Args:
-#  existing_ingredients: list if existing ingredients (e.g. my_pantry).
-#
-# Returns: list of "ingredient name" to number of new recipes it would "unlock"
+Args:
+  existing_ingredients: List if existing ingredients (e.g. my_pantry).
+
+Returns:
+  List of "ingredient name" to number of new recipes it would "unlock".
+"""
 def PrintOneAdditionalIngredient(existing_ingredients):
   pantry = set(existing_ingredients)
 
@@ -116,15 +138,16 @@ def PrintOneAdditionalIngredient(existing_ingredients):
       else:
         ingredient_frequency[missing_ingredient] = [recipe._name]
 
-  # TODO: want to sort by num of recipe_names.
   ingredients_sorted_by_freq = sorted(ingredient_frequency.items(), key=lambda entry: len(entry[1]),
   reverse=True)
   print "Most used one-additional-ingredients are: {0}".format(str(ingredients_sorted_by_freq))
 
-# Given an ingredient, list the recipes that can be made with it.
-#
-# Args:
-#   ingredient: ingredient from ingredients.py
+
+"""Given an ingredient, print the recipes that can be made with it.
+
+Args:
+   ingredient: Ingredient from ingredients.py.
+"""
 def GetRecipesForIngredient(ingredient):
   recipes = []
   for recipe in book._recipes:
@@ -134,6 +157,11 @@ def GetRecipesForIngredient(ingredient):
   print "\n Recipes that can be made with {0}: {1}".format(str(ingredient), str(recipes))
  
 #GetRecipesForIngredient(Amari.fernet_branca)
+
+
+book = RecipeBook()
+my_pantry = [Gin.beefeater, W.buffalo_bourbon, W.rittenhouse_rye, R.goslings, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.fernet_branca, Amari.campari, V.dolin_dry, V.dolin_blanc, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange,  B.a, B.o, B.p, O.simple_syrup, O.ginger_syrup]
+
 
 def main(argv):
   arg_parser = argparse.ArgumentParser(description="TangKon Drinks. Your online, friendly bar helper.")
