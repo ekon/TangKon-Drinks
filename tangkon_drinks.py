@@ -73,7 +73,6 @@ def PrintIngredients(recipe_name):
 #PrintIngredients(drink_name)
 
 # Prints a sorted map of ingredient to # recipes used in in order of most-used first.
-# TODO: right now it prints in reverse order, fix that.
 # TODO: This function is a decent approximation for what ingredients I want, but isn't good enough.
 # This doesn't optimize for actually being able to make more drinks. What I really want is a
 # function that will tell me which ingredient I should buy that will let me make the most number of
@@ -88,10 +87,39 @@ def PrintMostUsedIngredients():
         ingredient_frequency[ingredient] += 1
       else:
         ingredient_frequency[ingredient] = 1
-  ingredients_sorted_by_freq = sorted(ingredient_frequency.items(), key=operator.itemgetter(1))
+  ingredients_sorted_by_freq = sorted(ingredient_frequency.items(), key=operator.itemgetter(1),
+  reverse=True)
   print "Most used ingredients are: {0}".format(str(ingredients_sorted_by_freq))
 
 #PrintMostUsedIngredients()
+
+
+# Prints most-used ingredients that, if I got any single one, would allow to me to make more
+# recipes.
+#
+# Args:
+#  existing_ingredients: list if existing ingredients (e.g. my_pantry).
+#
+# Returns: list of "ingredient name" to number of new recipes it would "unlock"
+def PrintOneAdditionalIngredient(existing_ingredients):
+  pantry = set(existing_ingredients)
+
+  # Map from ingredient name -> list of recipes that could be made if I had this one additional
+  # ingredient.
+  ingredient_frequency = {}
+  for recipe in book._recipes:
+    missing_ingredients = set(recipe._ingredients) - pantry
+    if len(missing_ingredients) == 1:
+      missing_ingredient = missing_ingredients.pop()
+      if missing_ingredient in ingredient_frequency:
+        ingredient_frequency[missing_ingredient].append(recipe._name)
+      else:
+        ingredient_frequency[missing_ingredient] = [recipe._name]
+
+  # TODO: want to sort by num of recipe_names.
+  ingredients_sorted_by_freq = sorted(ingredient_frequency.items(), key=lambda entry: len(entry[1]),
+  reverse=True)
+  print "Most used one-additional-ingredients are: {0}".format(str(ingredients_sorted_by_freq))
 
 # Given an ingredient, list the recipes that can be made with it.
 #
@@ -111,6 +139,7 @@ def main(argv):
   arg_parser = argparse.ArgumentParser(description="TangKon Drinks. Your online, friendly bar helper.")
   arg_parser.add_argument("--get_recipes_for_ingredient", help="Get recipes that could be created with the given ingredient, regardless of pantry availability.")
   arg_parser.add_argument("--print_most_used_ingredients", help="Prints out a list of ingredients sorted by most used in the recipes.", action="store_true")
+  arg_parser.add_argument("--print_one_additional_ingredient", help="Prints which recipes I can make if I had just one additional ingredient, in order of ingredients that would allow me to make the most new recipes.", action="store_true")
   arg_parser.add_argument("--print_what_i_can_make", help="Prints which recipes I can make with the items in my pantry.", action="store_true")
   arg_parser.add_argument("--print_ingredients", help="Prints ingredients for a given recipe name")
   arg_parser.add_argument("--print_missing_ingredients", help="Prints missing ingredients for a given recipe name")
@@ -120,6 +149,8 @@ def main(argv):
     print "TODO: convert between string and class/member name."
   if args.print_most_used_ingredients:
     PrintMostUsedIngredients()
+  if args.print_one_additional_ingredient:
+    PrintOneAdditionalIngredient(my_pantry)
   if args.print_what_i_can_make:
     PrintWhatICanMake()
   if args.print_ingredients:
