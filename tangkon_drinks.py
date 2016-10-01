@@ -160,7 +160,7 @@ def GetRecipesForIngredient(ingredient):
 
 
 book = RecipeBook()
-my_pantry = [Gin.beefeater, W.buffalo_bourbon, W.rittenhouse_rye, R.goslings, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.fernet_branca, Amari.campari, V.dolin_dry, V.dolin_blanc, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange,  B.a, B.o, B.p, O.simple_syrup, O.ginger_syrup]
+my_pantry = [Gin.beefeater, W.buffalo_bourbon, W.rittenhouse_rye, R.goslings, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.fernet_branca, Amari.campari, V.dolin_dry, V.dolin_blanc, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange, B.a, B.o, B.p, O.ss, O.ginger_syrup]
 
 
 def main(argv):
