@@ -1,4 +1,5 @@
 class Gin(object):
+  # Death & Co recommended
   beefeater = "Beefeater London Dry Gin"
   plymouth = "Plymouth Gin"
   tanqueray = "Tanqueray London Dry Gin"
@@ -8,7 +9,6 @@ class Gin(object):
   anchor = "Anchor Distilling Company Junipero Gin"
   perrys = "Perry's Tot Navy-Strength Gin"
   
-  # not in recommended section
   anchor = "Anchor Junipero Gin"
   fords = "Fords Gin"
   pennyroyal_infused_haymans_old_tom = "Pennyroyal-infused Hayman's Old Tom Gin" # instructions on pg. 281
@@ -24,6 +24,7 @@ class Gin(object):
 
 # R = Rum
 class R(object):
+  # Death & Co recommended
   cana_brava = "Cana Brave rum (Panama)"
   flor_de_cana = "Flor de Cana Extra-Dry White Rum (Nicaragua)"
   ron_del_barrilito_3 = "Ron del berrilito 3-star Rum"
@@ -38,7 +39,6 @@ class R(object):
   la_favorite_ambre = "La Favorite Rhum Agricole Ambre (Martinique)"
   la_favorite_blanc = "La Favorite Rhum Agricole Blanc (Martinique)"
   
-  # not in the recommendations
   appleton_reserve = "Appleton Estate Reserve Rum"
   el_dorado_151 = "El Dorado 151 Rum"
   el_dorado_15 = "El Dorado 15-Year Rum"
@@ -50,6 +50,7 @@ class R(object):
 
 # T = Tequila
 class T(object):
+  # Death & Co recommended
   siembra_blanco = "Siembra Azul Blanco Tequila"
   siete_blanco = "Siete Leguas Blanco Tequila"
   el_tesoro_platinum = "El Tesoro Platinum Tequila"
@@ -57,11 +58,13 @@ class T(object):
   siete_reposado = "Siete Leguas Reposado Tequila"
   el_tesaro_anejo = "El Tesaro Anejo Tequila"
 
-  # not in the recommendations
   tapatio_blanco = "Tapatio 110 Blanco Tequila"
+  don_julio_reposado = "Don Julio Reposado Tequila"
+  partida_reposado = "Partida Reposado Tequila"
 
 
 class Mezcal(object):
+  # Death & Co recommended
   del_maguey_chichicapa = "Del Maguey Chichicapa Mezcal"
   del_maguey_crema = "Del Maguey Crema de Mezcal"
   del_maguey_vida = "Del Maguey Vida Mezcal"
@@ -70,6 +73,7 @@ class Mezcal(object):
 
 # W = Whiskey
 class W(object):
+  # Death & Co recommended
   buffalo_bourbon = "Buffalo Trace Kentucky Straight Bourbon"
   elijah_bourbon = "Elijah Craig 12-Year Kentucky Straight Bourbon"
   old_grand_dad_114_bourbon = "Old Grand-Dad 114 Kentucky Straight Bourbon"
@@ -81,14 +85,15 @@ class W(object):
   laphroaig_scotch = "Laphroaig 10-Year Islay Single-Malt Scotch"
   redbreast_whiskey = "Redbreast 12-Year Irish Whiskey"
   
-  # not mentioned in recommendation section
   springbank_10_scotch = "Springback 10-Year Scotch"
   bakers_bourbon = "Baker's Bourbon"
   eagle_bourbon = "Eagle Rare 10-Year Bourbon"
   templeton_rye = "Templeton Rye"
-
+  bushmills_irish_whiskey = "Bushmills Irish Whiskey"
+  
 
 class Brandy(object):
+  # Death & Co recommended
   acholado_pisco = "Campo de Encanto Acholado Pisco"
   hine_cognac = "Hine H VSOP Cognac"
   pierre_ferrand_1840_cognac = "Pierre Ferrand 1840 Cognac"
@@ -101,22 +106,22 @@ class Brandy(object):
   
 
 class Vodka(object):
-  # there are no recommendations for vodka, but some recipes ask for them
   charbay = "Charbay Vodka"
 
 # Other spirits
 class OS(object):
+  # Death & Co recommended
   linie_aquavit = "linie Aquavit"
   krogstad_aquavit = "Krogstad Aquavit"
   emile_pernot_absinthe = "Emile Pernot Vieux Pontalier Absinthe"
   van_oosten = "Van Oosten Batavia Arrach" # can't quite figure out if it's an ingredient (pg. 37)
   
-  # not in recommendations
   vieux_absinthe = "Vieux Pontarlier Absinthe"
 
 
 # TODO: Liqueur is a Modifier, but haven't yet needed to make a base class for Modifier, may want to though to include the Other category? Although that would be a very weird inheritance! The other Category should also then just be a subclass of Modifiers. But doesn't make sense to keep a class empty.
 class L(object):
+  # Death & Co recommended
   benedictine = "Benedictine"
   green_chartreuse = "Green Chartreuse"
   yellow_chartreuse = "Yellow Chartreuse"
@@ -134,7 +139,6 @@ class L(object):
   falernum = "John D. Taylor Velvet Falernum"
   elixir_combier = "Exlixir Combier"
   
-  # not mentioned in recommendation section
   cherry_heering = "Cherry Heering Liqueur"
   drambuie = "Drambuie" # honey spice liqueur with scotch base
   gabriel_curacao = "Gabriel Boudier Curacao" # blue
@@ -148,10 +152,12 @@ class L(object):
   creme_de_fraise = "Merlet creme de fraise des bois strawberry liqueur"
   rothman_creme_de_violette = "Rothamn & Winter Creme de Violette"
   dolin_genepy = "Dolin Genepy des Alpes Liqueur"
-
+  barenjager_honey = "Barenjager Honey Liqueur"
+  marie_curacao = "Marie Brizard Orange Curacao"
 
 # Includes Amari, Aperitifs and Digestifs
 class Amari(object):
+  # Death & Co recommended
   amaro_averna = "Amaro Averna"
   amaro_ciociaro = "Amaro CioCiaro"
   amaro_lucano = "Amaro Lucano"
@@ -167,6 +173,7 @@ class Amari(object):
 
 # V = Vermouth
 class V(object):
+  # Death & Co recommended
   carpano = "Carpano Antica Formula Vermouth" # sweet
   cocchi = "Cocchi Vermouth di Torino" # sweet
   dolin_blanc = "Dolin Blanc Vermouth"
@@ -174,30 +181,34 @@ class V(object):
   dolin_rouge = "Dolin Rouge Vermouth"
   punt_e_mes = "Punt e Mes"
   
-  # not mentioned in recommendation section
-  house_sweet = "House sweet Vermouth" # instructions on pg. 284
+  house_sweet = "House sweet Vermouth" # instructions on Death & Co pg. 284
   contratto = "Contratto Antica Formula Vermouth"
-  carpano_coffee = "Coffee-infused Carpano Antica Formula Vermouth" # instructions on pg. 282
+  carpano_coffee = "Coffee-infused Carpano Antica Formula Vermouth" # instructions on Death & Co pg. 282
   grapefruit_punt_e_mes = "Grapefruit-infused Punt e Mes"
   martini_sweet = "Martini Sweet Vermouth"
 
 
 class Sherry(object):
+  # Death & Co recommended
   alvear_pale_cream = "Alvear Festival Pale Cream Montilla-Moriles"
   manzanilla = "La Gitana Manzanilla Sherry"
   solera = "Lustau East Indian Solera Sherry"
   amontillado = "Lustau Los Acros Amontillado Sherry"
   williams_dry = "Williams & Humbert Dry Sack Medium Sherry"
-  barbadillo = "Barbadillo Principe Amontillado Sherry" # not in recommendation section
+
+  barbadillo = "Barbadillo Principe Amontillado Sherry" 
+  cortado = "Lustau Palo Cortado Sherry"
 
 
 class Port(object):
+  # Death & Co recommended
   graham_reserve = "Graham's \"Six Grape\" Reserve Ruby Port"
   warre_tawny = "Warre's Otima Ten-Year Tawyny Port"
 
 
 # AW = Aperitif Wines
 class AW(object):
+  # Death & Co recommended
   bonal = "Bonal Gentiane-Quina"
   cocchi_americano = "Cocchi Americano"
   lillet_blanc = "Lillet Blanc"
@@ -207,6 +218,7 @@ class AW(object):
 
 # B = Bitters
 class B(object):
+  # Death & Co recommended
   # lifting
   cherry_vanilla = "Bittercube cheery bark and vanilla bitters"
   celery = "Bitter Truth Celery bitters"
@@ -214,8 +226,7 @@ class B(object):
   gapefruit = "Bittermens hopped grapefruit bitters"
   habanero = "Bittermens Hellfire habanero shrub"
   ho = "House orange" # instructions on pg. 284
-  o = "Orange" # also binding
-  
+  o = "Orange" # also binding 
   # binding
   a = "Angostura"
   mole = "Bittermens Xocolatl mole bitters"
@@ -225,8 +236,8 @@ class B(object):
   house_peychauds = "House Peychaud's bitters" # instructions on pg. 284
   p = "Peychaud's"
   
-  # not mentioned in recommendation section
   levender = "Scrappy's levender bitters"
+  old_fashion = "Fee Brothers Old Fashion bitters"
 
 
 # J = juice
@@ -286,6 +297,11 @@ class O(object):
   boiron_kalamansi_puree = "Boiron Kalamansi puree"
   dons_hard_apple_cider = "Don's hard apple cider"
 
+  house_ginger_beer = "House Ginge Beer" # from PDT
+
+  bek_se_ju = "Bek Se Ju \"100-year wine\""
+  ssal_yut_rice_syrup = "Ssal-Yut Rice Syrup"
+
 
 # G = Garnish
 class G(object):
@@ -320,3 +336,5 @@ class G(object):
 class Beer(object):
   green_flash_ipa = "Green Flash IPA"
 
+class Wine(object):
+  channing_chardonnay = "Channing Daughters Scuttlehole Chardonnay"
