@@ -11,6 +11,15 @@ class Gin(object):
   # not in recommended section
   anchor = "Anchor Junipero Gin"
   fords = "Fords Gin"
+  pennyroyal_infused_haymans_old_tom = "Pennyroyal-infused Hayman's Old Tom Gin" # instructions on pg. 281
+  tanqueray_10 = "Tanqueray No. Ten Gin"
+  bols_barrel_aged_genever = "Bols Barrel Aged Genever"
+  bombay_london_dry = "Bombay London Dry Gin"
+  beefeater_24 = "Beefeater 24 Gin"
+  dorothy_parker = "Dorothy Parker Gin"
+  peppercorn_infused_plymouth = "Szechuan Peppercorn-infused Plumouth Bin" # instructions on pg. 283
+  snap_pea_infused_plymouth = "Snap pea-infused Plymouth Gin" # instructions on pg. 283
+  bruichladdich = "Bruichladdich Botanist Gin"
 
 
 # R = Rum
@@ -123,6 +132,7 @@ class L(object):
   st_germain = "St-Germain"
   suze = "Suze Saveur d'Autrefois Liqueur"
   falernum = "John D. Taylor Velvet Falernum"
+  elixir_combier = "Exlixir Combier"
   
   # not mentioned in recommendation section
   cherry_heering = "Cherry Heering Liqueur"
@@ -130,17 +140,25 @@ class L(object):
   gabriel_curacao = "Gabriel Boudier Curacao" # blue
   maraska_maraschino = "Marasaca Maraschino Liqueur"
   massenez_peach_cream = "Massenez Creme de Peche Peach Liqueur"
+  massenez_blackberry = "Massenez Creme de Mure Blackberry Liqueur"
   marie_mint_cream = "Marie Brizard White Creme de Menthe"
+  marie_apricot = "Marie Brizard Apricot Liqueur"
+  kronan_swedish_punsch = "Kronan Swedish Punsch"
+  solerno_blood_orange = "Solerno Blood Orange Liqueur"
+  creme_de_fraise = "Merlet creme de fraise des bois strawberry liqueur"
+  rothman_creme_de_violette = "Rothamn & Winter Creme de Violette"
+  dolin_genepy = "Dolin Genepy des Alpes Liqueur"
 
 
 # Includes Amari, Aperitifs and Digestifs
 class Amari(object):
   amaro_averna = "Amaro Averna"
   amaro_ciociaro = "Amaro CioCiaro"
+  amaro_lucano = "Amaro Lucano"
   amaro_meletti = "Amaro Meletti"
   amaro_nardini = "Amaro Nardini"
   amaro_nanino = "Amaro Nanino Quintessentia"
-  aprol = "Aperol"
+  aperol = "Aperol"
   campari = "Campari"
   cynar = "Cynar"
   fernet_branca = "Fernet-Branca"
@@ -160,6 +178,8 @@ class V(object):
   house_sweet = "House sweet Vermouth" # instructions on pg. 284
   contratto = "Contratto Antica Formula Vermouth"
   carpano_coffee = "Coffee-infused Carpano Antica Formula Vermouth" # instructions on pg. 282
+  grapefruit_punt_e_mes = "Grapefruit-infused Punt e Mes"
+  martini_sweet = "Martini Sweet Vermouth"
 
 
 class Sherry(object):
@@ -193,7 +213,7 @@ class B(object):
   tiki = "Bittermens 'Elemakule Tiki bitters"
   gapefruit = "Bittermens hopped grapefruit bitters"
   habanero = "Bittermens Hellfire habanero shrub"
-  house_orange = "House orange" # instructions on pg. 284
+  ho = "House orange" # instructions on pg. 284
   o = "Orange" # also binding
   
   # binding
@@ -230,15 +250,17 @@ class O(object):
   coco_lopez = "Coco lopez" # sugar sweetner
   pomegranate_molasses = "Pomegranet molasses"
   rose_water = "Rose water"
-  verjus = "Verjus"
+  verjus_blanc = "Fusion Verjus Blanc"
   
   creme_yvette = "Creme Yvette"
-  simple_syrup = "simple syrup"
+  ss = "simple syrup"
   acacia_honey_syrup = "acacia honey syrup" # instructions on pg. 286 in the book
   dry_champagne = "dry champagne"
   club_soda = "Club soda"
   tonic_water = "Tonic water"
+  coconut_water = "Coconut water"
   cane_sugar_syrup = "cane sugar syrup"
+  vanilla_syrup = "vanilla syrup" # instructions on pg. 277
   white_sugar_cube = "White sugar cube"
   passion_fruit_syrup = "Passion Fruit Syrup" # instructions on pg. 277
   cinnamon_bark_syrup = "Cinnamon Bark Syrup" # instructions on pg. 276
@@ -251,13 +273,18 @@ class O(object):
   egg_yolk = "Egg yolk"
   heavy_cream = "Heavy cream"
   lime_cordial = "Toby's lime cordial" # instructions on pg. 285
+  black_current_cordial = "American Fruits Black Current Cordial"
   grenadine = "Grenadine" # instructions on pg. 284
   donns_spices_2 = "Donn's spices #2" # instructions on pg. 284
   san_pellegrino_grapefruit = "San Pellegrino Pompelmo Grapefruit soda"
   orange_flower_water = "Orange flower water"
   zombie_mix = "Zombie mix" # instructions on pg. 284
+  toasted_fennel_salt_rim = "toasted fennel salt rim" # instructions on pg. 283
+  scarlet_glow_syrup = "scarlet glow syrup" # instructions on pg. 277
   
   avua_cachaca = "Avua amburana cachaca"
+  boiron_kalamansi_puree = "Boiron Kalamansi puree"
+  dons_hard_apple_cider = "Don's hard apple cider"
 
 
 # G = Garnish
@@ -267,11 +294,16 @@ class G(object):
   orange = "orange"
   grapefruit = "Grapefruit"
   apple = "Apple"
+  anjou_pear = "Anjou pear"
+  green_grapes = "Green grapes"
   brandied_cherry = "Luxardo Marasche brandied cherry"
   cherry = "Cherry flag"
   cucumber = "Cucumber"
   mint = "Mint"
   curry_leaf = "Curry leaf"
+  sage_leaf = "Safe leaf"
+  basil_leaf = "Basil leaf"
+  thai_basil_leaf = "Thai Basil leaf"
   kaffir_lime_leaf = "Kaffir lime leaf"
   pear = "Pear"
   pineapple = "Pineapple"
@@ -283,3 +315,8 @@ class G(object):
   cinnamon = "Cinnamon"
   nutmeg = "Nutmeg"
   candied_ginger = "Candied ginger flag"
+
+
+class Beer(object):
+  green_flash_ipa = "Green Flash IPA"
+
