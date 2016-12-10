@@ -194,7 +194,7 @@ class L(object):
   marie_curacao = "Marie Brizard Orange Curacao"
   baileys = "Bailey's Irish Cream"
 
-  substitutions = (creme_yvette, rothman_creme_de_violette)
+  substitutions = [(creme_yvette, rothman_creme_de_violette)]
 
 
 # Includes Amari, Aperitifs and Digestifs
@@ -380,5 +380,9 @@ class G(object):
 class Beer(object):
   green_flash_ipa = "Green Flash IPA"
 
+
 class Wine(object):
   channing_chardonnay = "Channing Daughters Scuttlehole Chardonnay"
+
+
+substitutions = [L.substitutions]
