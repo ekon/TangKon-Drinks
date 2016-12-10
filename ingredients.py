@@ -1,4 +1,8 @@
 class Gin(object):
+  # Generic
+  gin = "gin"
+  sloe_gin = "sloe gin"
+
   # Death & Co recommended
   beefeater = "Beefeater London Dry Gin"
   plymouth = "Plymouth Gin"
@@ -11,19 +15,24 @@ class Gin(object):
   
   anchor = "Anchor Junipero Gin"
   fords = "Fords Gin"
-  pennyroyal_infused_haymans_old_tom = "Pennyroyal-infused Hayman's Old Tom Gin" # instructions on pg. 281
+  pennyroyal_infused_haymans_old_tom = "Pennyroyal-infused Hayman's Old Tom Gin" # instructions on D&C pg. 281
   tanqueray_10 = "Tanqueray No. Ten Gin"
   bols_barrel_aged_genever = "Bols Barrel Aged Genever"
   bombay_london_dry = "Bombay London Dry Gin"
   beefeater_24 = "Beefeater 24 Gin"
   dorothy_parker = "Dorothy Parker Gin"
-  peppercorn_infused_plymouth = "Szechuan Peppercorn-infused Plumouth Bin" # instructions on pg. 283
-  snap_pea_infused_plymouth = "Snap pea-infused Plymouth Gin" # instructions on pg. 283
+  peppercorn_infused_plymouth = "Szechuan Peppercorn-infused Plumouth Bin" # instructions on D&C pg. 283
+  snap_pea_infused_plymouth = "Snap pea-infused Plymouth Gin" # instructions on D&C pg. 283
   bruichladdich = "Bruichladdich Botanist Gin"
+  plymouth_sloe = "Plymouth Sloe Gin"
+  hendricks = "Hendrick's Gin"
 
 
 # R = Rum
 class R(object):
+  # Generic
+  rum = "rum"
+
   # Death & Co recommended
   cana_brava = "Cana Brave rum (Panama)"
   flor_de_cana = "Flor de Cana Extra-Dry White Rum (Nicaragua)"
@@ -46,10 +55,14 @@ class R(object):
   clement_creole = "Rhum Clement Creole Shrubb"
   barbancourt_3 = "Barbancourt 3-Star Rhum"
   lemon_hart_original = "Lemon Hart Original  Rum"
+  diplomatico = "Diplomatico Reserva Exclusiva"
 
 
 # T = Tequila
 class T(object):
+  # Generic
+  tequila = "tequila"
+
   # Death & Co recommended
   siembra_blanco = "Siembra Azul Blanco Tequila"
   siete_blanco = "Siete Leguas Blanco Tequila"
@@ -64,6 +77,9 @@ class T(object):
 
 
 class Mezcal(object):
+  # Generic
+  mezcal = "mezcal"
+
   # Death & Co recommended
   del_maguey_chichicapa = "Del Maguey Chichicapa Mezcal"
   del_maguey_crema = "Del Maguey Crema de Mezcal"
@@ -73,6 +89,13 @@ class Mezcal(object):
 
 # W = Whiskey
 class W(object):
+  # Generic
+  whiskey = "whiskey"
+  bourbon = "bourbon"
+  scotch = "scotch"
+  rye = "rye"
+  japanese_whiskey = "Japanese whiskey"
+
   # Death & Co recommended
   buffalo_bourbon = "Buffalo Trace Kentucky Straight Bourbon"
   elijah_bourbon = "Elijah Craig 12-Year Kentucky Straight Bourbon"
@@ -90,9 +113,13 @@ class W(object):
   eagle_bourbon = "Eagle Rare 10-Year Bourbon"
   templeton_rye = "Templeton Rye"
   bushmills_irish_whiskey = "Bushmills Irish Whiskey"
+  hibiki = "Hibiki Suntory Japanese Whiskey (Harmony)"
   
 
 class Brandy(object):
+  # Generic
+  cognac = "cognac"
+
   # Death & Co recommended
   acholado_pisco = "Campo de Encanto Acholado Pisco"
   hine_cognac = "Hine H VSOP Cognac"
@@ -106,10 +133,17 @@ class Brandy(object):
   
 
 class Vodka(object):
+  # Generic
+  vodka = "vodka"
+
   charbay = "Charbay Vodka"
+
 
 # Other spirits
 class OS(object):
+  # Generic
+  absinthe = "absinthe"
+
   # Death & Co recommended
   linie_aquavit = "linie Aquavit"
   krogstad_aquavit = "Krogstad Aquavit"
@@ -121,6 +155,9 @@ class OS(object):
 
 # TODO: Liqueur is a Modifier, but haven't yet needed to make a base class for Modifier, may want to though to include the Other category? Although that would be a very weird inheritance! The other Category should also then just be a subclass of Modifiers. But doesn't make sense to keep a class empty.
 class L(object):
+  # Generic
+  white_creme_de_menthe = "white creme de menthe"
+
   # Death & Co recommended
   benedictine = "Benedictine"
   green_chartreuse = "Green Chartreuse"
@@ -151,9 +188,14 @@ class L(object):
   solerno_blood_orange = "Solerno Blood Orange Liqueur"
   creme_de_fraise = "Merlet creme de fraise des bois strawberry liqueur"
   rothman_creme_de_violette = "Rothamn & Winter Creme de Violette"
+  creme_yvette = "Creme Yvette"
   dolin_genepy = "Dolin Genepy des Alpes Liqueur"
   barenjager_honey = "Barenjager Honey Liqueur"
   marie_curacao = "Marie Brizard Orange Curacao"
+  baileys = "Bailey's Irish Cream"
+
+  substitutions = (creme_yvette, rothman_creme_de_violette)
+
 
 # Includes Amari, Aperitifs and Digestifs
 class Amari(object):
@@ -225,7 +267,7 @@ class B(object):
   tiki = "Bittermens 'Elemakule Tiki bitters"
   gapefruit = "Bittermens hopped grapefruit bitters"
   habanero = "Bittermens Hellfire habanero shrub"
-  ho = "House orange" # instructions on pg. 284
+  ho = "House orange" # instructions on D&C pg. 284
   o = "Orange" # also binding 
   # binding
   a = "Angostura"
@@ -233,7 +275,7 @@ class B(object):
   bt = "Bitter Truth aromatic bitters"
   jt = "Bitter Truth Jerry Thomas' bitters"
   whiskey = "Fee Brothers whiskey barrel-aged bitters"
-  house_peychauds = "House Peychaud's bitters" # instructions on pg. 284
+  house_peychauds = "House Peychaud's bitters" # instructions on D&C pg. 284
   p = "Peychaud's"
   
   levender = "Scrappy's levender bitters"
@@ -262,36 +304,39 @@ class O(object):
   pomegranate_molasses = "Pomegranet molasses"
   rose_water = "Rose water"
   verjus_blanc = "Fusion Verjus Blanc"
-  
-  creme_yvette = "Creme Yvette"
+ 
+  # Syrups
   ss = "simple syrup"
-  acacia_honey_syrup = "acacia honey syrup" # instructions on pg. 286 in the book
+  cane_sugar_syrup = "cane sugar syrup"
+  vanilla_syrup = "vanilla syrup" # instructions on D&C pg. 277
+  honey_syrup = "honey syrup"
+  acacia_honey_syrup = "acacia honey syrup" # instructions on D&C pg. 286 
+  passion_fruit_syrup = "Passion Fruit Syrup" # instructions on D&C pg. 277
+  cinnamon_bark_syrup = "Cinnamon Bark Syrup" # instructions on D&C pg. 276
+  ginger_syrup = "Ginger Syrup" # instructions on D&C pg. 277
+  demerara_syrup = "Demerara syrup" # instructions on D&C pg. 277
+  orgeat = "Orgeat" # almond-based syrup, instructions on D&C pg. 278
+  scarlet_glow_syrup = "scarlet glow syrup" # instructions on D&C pg. 277
+  ssal_yut_rice_syrup = "Ssal-Yut Rice Syrup"
+  grenadine = "Grenadine" # instructions on D&C pg. 284
+  
   dry_champagne = "dry champagne"
   club_soda = "Club soda"
   tonic_water = "Tonic water"
   coconut_water = "Coconut water"
-  cane_sugar_syrup = "cane sugar syrup"
-  vanilla_syrup = "vanilla syrup" # instructions on pg. 277
   white_sugar_cube = "White sugar cube"
-  passion_fruit_syrup = "Passion Fruit Syrup" # instructions on pg. 277
-  cinnamon_bark_syrup = "Cinnamon Bark Syrup" # instructions on pg. 276
-  ginger_syrup = "Ginger Syrup" # instructions on pg. 277
-  orgeat = "Orgeat" # almond-based syrup, instructions on pg. 278
-  demerara_syrup = "Demerara syrup" # instructions on pg. 277
-  pendennis_mix = "Pendennis mix" # instructions on pg. 284
+  pendennis_mix = "Pendennis mix" # instructions on D&C pg. 284
   agave_nectar = "Agave nectar"
   egg_white = "Egg white"
   egg_yolk = "Egg yolk"
   heavy_cream = "Heavy cream"
-  lime_cordial = "Toby's lime cordial" # instructions on pg. 285
+  lime_cordial = "Toby's lime cordial" # instructions on D&C pg. 285
   black_current_cordial = "American Fruits Black Current Cordial"
-  grenadine = "Grenadine" # instructions on pg. 284
-  donns_spices_2 = "Donn's spices #2" # instructions on pg. 284
+  donns_spices_2 = "Donn's spices #2" # instructions on D&C pg. 284
   san_pellegrino_grapefruit = "San Pellegrino Pompelmo Grapefruit soda"
   orange_flower_water = "Orange flower water"
-  zombie_mix = "Zombie mix" # instructions on pg. 284
-  toasted_fennel_salt_rim = "toasted fennel salt rim" # instructions on pg. 283
-  scarlet_glow_syrup = "scarlet glow syrup" # instructions on pg. 277
+  zombie_mix = "Zombie mix" # instructions on D&C pg. 284
+  toasted_fennel_salt_rim = "toasted fennel salt rim" # instructions on D&C pg. 283
   
   avua_cachaca = "Avua amburana cachaca"
   boiron_kalamansi_puree = "Boiron Kalamansi puree"
@@ -300,7 +345,6 @@ class O(object):
   house_ginger_beer = "House Ginge Beer" # from PDT
 
   bek_se_ju = "Bek Se Ju \"100-year wine\""
-  ssal_yut_rice_syrup = "Ssal-Yut Rice Syrup"
 
 
 # G = Garnish

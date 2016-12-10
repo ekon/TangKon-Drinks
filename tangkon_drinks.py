@@ -6,6 +6,16 @@ from ingredients import *
 from recipe_book import *
 
 
+"""Retruns true if can make a substitution for a given ingredient.
+
+Being able to make a substitution means that the allowed substitute is present in the pantry.
+TODO: it may be useful to lift this restriction for cases when want to be able to find substitutions for getting new ingredients?
+
+"""
+def CanMakeSubstitution(ingredient):
+  return False
+
+
 """Returns True if can make given recipe.
 
 TODO: add logic about what type of substitutions I can actually do.
@@ -24,7 +34,7 @@ def CanMakeRecipe(existing_ingredients, subs_allowed, num_subs_allowed, recipe_i
   subs_made = 0
   for ingredient in recipe_ingredients:
     if ingredient not in existing_ingredients:
-      if not subs_allowed or subs_made == num_subs_allowed:
+      if not subs_allowed or subs_made == num_subs_allowed or not CanMakeSubstitution(ingredient):
         return False
       subs_made += 1
   return True
@@ -46,6 +56,7 @@ def WhatCanIMake(existing_ingredients, subs_allowed, num_subs_allowed):
     if CanMakeRecipe(existing_ingredients, subs_allowed, num_subs_allowed, recipe._ingredients):
       recipes_can_make.append(recipe)
   return recipes_can_make
+
 
 """Prints recipes that I can make."""
 def PrintWhatICanMake():
@@ -71,6 +82,7 @@ def FindMissingIngredients(recipe_name, existing_ingredients):
     if ingredient not in existing_ingredients:
       missing_ingredients.append(ingredient)
   return missing_ingredients
+
 
 """Prints missing ingredients.
 
@@ -160,7 +172,7 @@ def GetRecipesForIngredient(ingredient):
 
 
 book = RecipeBook()
-my_pantry = [Gin.beefeater, Gin.haymans, W.buffalo_bourbon, W.rittenhouse_rye, R.goslings, R.cana_brava, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, Amari.fernet_branca, Amari.campari, V.dolin_dry, V.dolin_blanc, V.dolin_rouge, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange, B.a, B.o, B.p, O.ss, O.ginger_syrup]
+my_pantry = [Gin.beefeater, Gin.haymans, Gin.plymouth_sloe, Gin.hendricks, W.buffalo_bourbon, W.rittenhouse_rye, W.hibiki, R.goslings, R.cana_brava, R.diplomatico, OS.vieux_absinthe, L.cointreau, L.luxardo, L.grand_marnier, L.st_germain, L.creme_yvette, Amari.fernet_branca, Amari.campari, AW.lillet_blanc, V.dolin_dry, V.dolin_blanc, V.dolin_rouge, Brandy.pierre_ferrand_1840_cognac, O.egg_white, O.egg_yolk, O.club_soda, O.dry_champagne, G.lemon, G.lime, G.orange, G.brandied_cherry, G.cherry, J.lemon, J.lime, J.orange, B.a, B.o, B.p, O.ss, O.ginger_syrup]
 
 
 def main(argv):
