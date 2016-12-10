@@ -6,7 +6,7 @@ from ingredients import *
 from recipe_book import *
 
 
-"""Retruns true if can make a substitution for a given ingredient.
+"""Returns true if can make a substitution for a given ingredient.
 
 Being able to make a substitution means that the allowed substitute is present in the pantry.
 TODO: it may be useful to lift this restriction for cases when want to be able to find substitutions for getting new ingredients?
